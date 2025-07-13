@@ -57,5 +57,5 @@ echo "✅ Deploying..."
 npx hardhat deploy --network sepolia
 
 echo "============================================="
-echo "🚀 ALL DONE — 🤫 follow @admirkhen ty🤝
+echo "🚀 ALL DONE — 🤫 follow @admirkhen ty🤝"
 echo "============================================="
