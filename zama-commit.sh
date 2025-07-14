@@ -1,50 +1,37 @@
 #!/bin/bash
 
-echo "============================================="
-echo "🚀 Zama Contribution Helper"
-echo "============================================="
+# Update your details here
+REPO="zama-unique-commits"
+USERNAME="your-github-username"
+EMAIL="your-email@example.com"
 
-# USER CONFIG
-GITHUB_USERNAME="YOUR_USERNAME"
-GITHUB_EMAIL="YOUR_EMAIL@example.com"
-GITHUB_TOKEN="YOUR_PERSONAL_ACCESS_TOKEN"
-NEW_REPO_NAME="zama-logs"
+echo "🚀 Saint Khen Zama Commit Script"
 
-echo "✅ Creating GitHub repo: $NEW_REPO_NAME..."
+# 1️⃣ Create new repo folder
+mkdir $REPO
+cd $REPO
+git init
+echo "# $REPO" > README.md
 
-# Create repo with GitHub API
-curl -H "Authorization: token $GITHUB_TOKEN" \
-     -d "{\"name\":\"$NEW_REPO_NAME\", \"private\":false}" \
-     https://api.github.com/user/repos
+# 2️⃣ Set your GitHub identity
+git config user.name "$USERNAME"
+git config user.email "$EMAIL"
 
-echo "✅ Repo created"
-
-# Clone the new repo
-git clone https://github.com/$GITHUB_USERNAME/$NEW_REPO_NAME.git
-cd $NEW_REPO_NAME
-
-# Git identity
-git config user.name "$GITHUB_USERNAME"
-git config user.email "$GITHUB_EMAIL"
-
-# Create commit file
-echo "# Zama Notes" > zama-notes.md
-
-# Make 10 commits
-for i in {1..10}
+# 3️⃣ Make unique commits with Saint vibes
+for i in {1..20}
 do
-  echo "Note $i: Progress log" >> zama-notes.md
-  git add zama-notes.md
-  git commit -m "Add note $i"
-  echo "✅ Commit $i done"
+  echo "Hail Saint $i" >> README.md
+  git add README.md
+
+  # Generate unique backdate
+  DATE=$(date -d "2025-06-30 01:00:00 +${i} minutes" +"%Y-%m-%dT%H:%M:%S")
+
+  git commit -m "I'm unique, I'm blessed by Saint — Hail $i" --date "$DATE"
 done
 
-# Push to main branch
-git branch -M main
-git remote set-url origin https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$NEW_REPO_NAME.git
-git push -u origin main
+# 4️⃣ Add remote
+echo "➡️ Now add remote: git remote add origin https://github.com/YOUR_USERNAME/$REPO.git"
+echo "➡️ Then push with: git push -u origin main"
+echo "👉 When prompted for password, paste your **Personal Access Token (PAT)**"
 
-echo "============================================="
-echo "🚀 All done — check your commits at:"
-echo "🔗 https://github.com/$GITHUB_USERNAME/$NEW_REPO_NAME"
-echo "============================================="
+echo "✅ Done — 20 Saint-blessed commits ready!"
