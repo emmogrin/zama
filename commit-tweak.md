@@ -1,4 +1,4 @@
-# 📌 Zama Commit Helper — by @admirkhen
+# 📌 Zama Commit Helper... by @admirkhen
 
 This script helps you easily create **multiple commits** to meet contribution requirements like the **Zama Dev Guild “10 Commits”** rule — without fuss or risky tricks.
 
